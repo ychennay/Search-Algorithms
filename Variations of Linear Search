@@ -23,3 +23,39 @@
 		}
 		}
 		return -1; // this can be really any value	
+
+
+// example 3: used to return multiple values. Based off of code from http://java2novice.com/java-search-algorithms/linear-search/
+// but adapted to include the ability to return more than one answer for a given array.
+
+package linearsearch;
+
+import java.util.Arrays;
+
+public class App {
+ 
+
+    public static int[] linerSearch(int[] arr, int key, int arraySize){
+         
+    	int[] answers = new int[arraySize];
+        int size = arr.length;
+        int matches = 0;
+        for(int i=0;i<size;i++){
+            if(arr[i] == key){
+                answers[matches] = i;
+            	matches = matches + 1;
+            }
+        }
+        return answers;
+    }
+	
+public static void main(String a[]){
+     
+    int[] arr1= {23,45,21,55,234,1,34,90,34,34};
+    int searchKey = 34;
+    System.out.println("Key "+searchKey+" found at index: "+Arrays.toString(linerSearch(arr1, searchKey, 3)));
+    int[] arr2= {123,445,421,595,2134,41,304, 421, 190, 421};
+    searchKey = 421;
+    System.out.println("Key "+searchKey+" found at index: "+Arrays.toString(linerSearch(arr2, searchKey, 3)));
+}
+}
