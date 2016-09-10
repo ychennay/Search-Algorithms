@@ -1,0 +1,25 @@
+// the below is derived from Udemy's Practical Data Structures and Algorithms course taught by Imtiaz Ahmad.
+// example #1 un-optimized linear search. In this example, a linear search across an arrayField is conducted. The linear search continues
+// to iterate through the for loop for the length of the array, even when a solution has been found.
+	
+	public int linearSearch(int[] arrayField, int target){
+		int answer = -1;
+		for (int i=0; i<= arrayField.length; i++){
+			if (target == arrayField[i]){
+			answer = i;
+		}
+		}
+		return answer;	
+		
+// example #2 better optimized linear search. In this example, the linear search immediately returns a value for answer if it comes
+// a match. This is because it returns a "dummy" variable of -1 outside of the for loop, but it returns i (the index position) immediately
+// once a match is found.
+
+	public int betterLinearSearch(int[] arrayField, int target){
+		int answer = -1;
+		for (int i=0; i<= arrayField.length; i++){
+			if (target == arrayField[i]){
+			return i;
+		}
+		}
+		return -1; // this can be really any value	
