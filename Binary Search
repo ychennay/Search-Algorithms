@@ -1,0 +1,40 @@
+// binary search algorithm that I created using the pseudo-code from Practice Data Structures and Algorithms (Udemy) by Imtiaz Ahmad
+
+package binarySearch;
+
+import java.util.Arrays;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		int[] inputArray = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+		int searchFor = 3;
+		int output= binarySearch(inputArray, searchFor);
+		
+		System.out.println("Key " + searchFor + " found at position: " + output);
+		
+	}
+
+	public static int binarySearch(int[] searchArray, int target){
+		
+		int start = 0;
+		int end = searchArray.length -1;
+		int midpoint = (start + end) / 2;
+
+		while (start <= end){
+			if (searchArray[midpoint] == target){
+				start = end + 1;
+				return midpoint;}
+			if (searchArray[midpoint] >= target){
+				end = midpoint - 1;
+				midpoint = (start + end) / 2;}
+			if (searchArray[midpoint] <= target){
+				start = midpoint + 1;
+				midpoint = (start + end) / 2;}
+			} // end while statement
+	return -1;
+	}
+	
+	
+}
