@@ -1,0 +1,50 @@
+package RecursiveFunctions;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class App {
+
+    public static void main(String[] args) {
+
+        System.out.print("Enter how many numbers to search through:");
+        Scanner scan = new Scanner(System.in);
+
+        int numOfVariables = Integer.parseInt(scan.nextLine());
+
+
+        int inputArray[] = new int[numOfVariables];
+        for (int i = 0; i < inputArray.length; i++) {
+            System.out.print("Enter the value in position " + (i+1) + " of the array (in ascending order): ");
+            inputArray[i] = Integer.parseInt(scan.nextLine());
+        }
+
+        System.out.println("This is the search field we will be conducting the recursive binary search using: " + Arrays.toString(inputArray));
+        System.out.println("Please enter the target integer you are searching for:");
+        Scanner scan2 = new Scanner(System.in);
+        int inputTarget = Integer.parseInt(scan2.nextLine());
+
+        System.out.println("Match found at index " + recursiveBinarySearch(inputArray, 0, inputArray.length, inputTarget));
+
+    }
+
+    public static int recursiveBinarySearch(int[] searchArray, int start, int end, int target) {
+        int midpoint = (start + end) / 2;
+          while (start < end){
+
+            if (searchArray[midpoint] == target) {
+                start = end;
+                return midpoint;}
+            else if (searchArray[midpoint] > target){
+                System.out.println("Current Index: " + (midpoint - 1));
+                return recursiveBinarySearch(searchArray, start, midpoint - 1, target);
+            }
+            else if (searchArray[midpoint] < target){
+                System.out.println("Current Index: " + (midpoint + 1));
+                return recursiveBinarySearch(searchArray, midpoint + 1, end, target);
+
+            }
+            }
+        return -1;
+    }
+}
