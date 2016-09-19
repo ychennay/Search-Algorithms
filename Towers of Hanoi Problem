@@ -1,0 +1,17 @@
+//  The following is a way to solve the Hanoi Towers problem (https://en.wikipedia.org/wiki/Tower_of_Hanoi). The code is from
+// a Udemy course I have taken called Algorithmic Problems and Numerical Methods in Java by Holczer Balazs. I am using his derivation and elegant solution
+// to create my own algorithms. 
+
+public class Algorithm {
+
+	public void solveHanoi(int n, char topRod, char middleRod,  char bottomRod){
+		if (n == 1){
+			System.out.println("Plate 1" + " moved from " + topRod + " to " + bottomRod);
+			return;
+		}
+		
+		solveHanoi(n - 1, topRod, bottomRod, middleRod);
+		System.out.println("Plate " + n + " moved from " + topRod + " to " + bottomRod);
+		solveHanoi(n - 1, middleRod, topRod, bottomRod);
+	}
+	}
